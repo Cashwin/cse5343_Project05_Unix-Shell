@@ -47,6 +47,13 @@ int main(int argc, char *argv[])
 	    		fclose(file2);
 	    	}
 
+	    else if(strcmp(argv[1], c4) == 0) {
+	    	if(remove (argv[2]) == -1) {
+	    		perror ("saveF:remove");
+	    		return 0;
+	    	}
+	    }
+
 	break;
 	}
 
