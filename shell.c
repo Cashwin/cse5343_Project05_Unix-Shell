@@ -30,6 +30,23 @@ int main(int argc, char *argv[])
 	    else if(strcmp(argv[1], c2) == 0) {
 	    	break;
 	    }
+
+	    else if(strcmp(argv[1], c3) == 0) {
+	    		char ch;
+	    		printf("Copying content of first file to second...\n");
+	    		FILE *file1 = fopen(argv[2],"r");
+	    		FILE *file2 = fopen(argv[3],"w");
+
+	    		while((ch = fgetc(file1)) != EOF) {
+	    			fputc(ch, file2);
+	    		}
+
+	    		printf("File copied successfully\n");
+
+	    		fclose(file1);
+	    		fclose(file2);
+	    	}
+
 	break;
 	}
 
