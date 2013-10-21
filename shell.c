@@ -24,12 +24,14 @@ int main(int argc, char *argv[])
 		printf(">", argv[2]);
         printf ("%s\n", buffer);
 	       }
-
 	    fclose(fi);
-	   }
-    break;
-	   }
+	    }
 
+	    else if(strcmp(argv[1], c2) == 0) {
+	    	break;
+	    }
+	break;
+	}
 
   return 0;
  }
