@@ -54,8 +54,33 @@ int main(int argc, char *argv[])
 	    	}
 	    }
 
-	break;
-	}
+	    else {
+	    	pid_t pid;
+	    	int status;
 
-  return 0;
- }
+	    	if((pid = fork()) < 0) {
+	    		printf("ERROR: Forking child process failed");
+	    		exit(1);
+	    	}
+
+	    	else if(pid == 0) {
+	    		char args[1][1];
+	    		args[0][0] = '\0';
+	    		execvp(argv[1], argv);
+	    		perror("exec failure");
+	    		exit(1);
+	    	}
+
+	    	else {
+	    		while(wait(&status) != pid)
+	    			;
+	    	}
+	    }
+
+	    break;
+	    }
+    
+
+    return 0;
+
+    }
